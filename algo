@@ -1,0 +1,88 @@
+Algorithm:
+
+TCP Server
+1.	using create(), Create TCP socket.
+2.	using bind(), Bind the socket to server address.
+3.	using listen(), put the server socket in a passive mode, where it waits for the client to approach the server to make a connection
+4.	using accept(), At this point, connection is established between client and server, and they are ready to transfer data.
+5.	Go back to Step 3.
+TCP Client
+•	Create a socket using the socket() function in c.
+•	Initialize the socket address structure  as per the server and connect the socket to the address of the server using the connect();
+•	Receive and send the data using the recv() and send() functions.
+Close the connection by calling the close() function.
+
+
+
+
+Algorithm:
+
+
+
+UDP Server :
+1.	Create UDP socket.
+2.	Bind the socket to server address.
+3.	Wait until datagram packet arrives from client.
+4.	Process the datagram packet and send a reply to client.
+5.	Go back to Step 3.
+UDP Client :
+
+1.	Create UDP socket.
+2.	Send message to server.
+3.	Wait until response from server is received.
+4.	Process reply and go back to step 2, if necessary.
+5.	Close socket descriptor and exit
+
+
+
+
+
+
+
+
+
+leaky bucket
+
+1.	Start
+2.	Set the bucket size or the buffer size.
+3.	Set the output rate.
+4.	Transmit the packets such that there is no overflow.
+5.	Repeat the process of transmission until all packets are transmitted. (Reject packets where its size is greater than the bucket size)
+6.	Stop
+
+
+
+
+ftp
+
+Steps involved in writing the Server Process:
+1. Create a socket using socket( ) system call with address family AF_INET, type   SOCK_STREAM and default protocol.
+2. Bind server’s address and port using bind( ) system call.
+3. Wait for client connection to complete accepting connections using accept( ) system call.
+5. Receive the Clients file using recv() system call .
+6. Using *fgets(char *str, int n, FILE *stream) function, we read a line of text from the specified stream and stores it into the string pointed to by str. It stops when either (n-1) characters are read, or when the end-of-file is reached.
+7. On successful execution i.e. when file pointer reaches end of file, file transfer “completed” message is sent by the server to the accepted client connection using newsd, socket file descriptor. 
+Steps involved in writing the Client Process:
+1. Create a socket system call with address family AF_INET, type SOCK_STREAM and default protocol. 
+2. Enter the client port id
+2. Fill in the internet socket address structure (with server information).
+3. Connect to the server address using connect() system call.
+4. Read the existing and new file name from user. 
+5. Send existing file to server using send() system call
+6. Receive feedback from server “Completed”, regarding file transfer completion.
+5. Write “File is transferred” to standard output screen.
+6. Close the socket connection and file pointer.
+
+
+Distance Vector Algorithm –
+-A router transmits its distance vector to each of its neighbors in a routing packet.
+-Each router receives and saves the most recently received distance vector from each of its neighbors.
+-A router recalculates its distance vector when:
+ It receives a distance vector from a neighbor containing different information than before.
+ It discovers that a link to a neighbor has gone down.
+The DV calculation is based on minimizing the cost to each destination
+Dx(y) = Estimate of least cost from x to y 
+C(x,v) = Node x knows cost to each neighbor v
+Dx = [Dx(y): y ∈ N ] = Node x maintains distance vector
+Node x also maintains its neighbors' distance vectors
+– For each neighbor v, x maintains Dv = [Dv(y): y ∈ N ]
